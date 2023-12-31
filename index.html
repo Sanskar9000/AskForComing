@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: system-ui;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: url('./bg_image.jpg');
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value (0.0 to 1.0) for opacity */
+        }
+        button {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3a0868;
+            margin: 10px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #f1d7fe, white);
+            border-radius: 25px;
+            border: 1px solid deeppink;
+            padding: 13px 42px;
+        }
+        button:hover{
+            background: linear-gradient(45deg, #c151f957, white);
+        }
+        #buttons-container {
+            display: flex;
+        }
+        #buttonNo {
+            margin-left: auto;
+        }
+        #choose{
+            font-weight: 500;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            var buttonNo = document.getElementById('buttonNo');
+            
+            var maxX = window.innerWidth - buttonNo.clientWidth;
+            var maxY = window.innerHeight - buttonNo.clientHeight;
+
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+            buttonNo.style.position = 'absolute';
+            buttonNo.style.left = newX + 'px';
+            buttonNo.style.top = newY + 'px';
+        }
+
+        function redirectToPage(choice) {
+            if (choice === 'yes') {
+                window.location.href = './success.html';  // Replace with the desired URL
+            } else {
+                moveNoButton();
+            }
+        }
+    </script>
+    <title>Jyoti aaj btayegi</title>
+</head>
+<body>
+    <h1>Bro tell me!</h1>
+    <p id="choose">Will you let me come to surat 🥹 ?</p>
+    <img style="height: 13rem;" src="https://media.tenor.com/ppJGvOm48zIAAAAi/peach-and-goma-peach-goma.gif" alt="">
+    <div id="buttons-container">
+        <button onclick="redirectToPage('yes')">Yes</button>
+        <button id="buttonNo" onclick="redirectToPage('no')">No</button>
+    </div>
+</body>
+</html>
